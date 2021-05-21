@@ -8,6 +8,7 @@
 
 body {
   font-family: "Roboto", "sans-serif";
+  overflow-x: hidden;
 }
 .container {
   max-width: 1300px;
@@ -27,16 +28,32 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
+  padding: 30px 20px;
 }
 /* Hamburger */
+.hamburger {
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
 .hamburger div {
+  transition: all 0.5s ease;
   width: 35px;
   height: 3px;
   background-color: #000;
   margin: 5px 0;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.toggle .line1 {
+  transform: rotate(45deg);
+}
+.toggle .line2 {
+  display: none;
+}
+.toggle .line3 {
+  transform: translateY(-8px) rotate(-49deg);
 }
 
 /* list */
@@ -49,16 +66,20 @@ body {
   flex-direction: column;
   position: absolute;
   top: 0;
-  left: -100%;
-  background-color: #0cd4ca27;
+  left: 0;
+  background-color: #bdbdbd3d;
+  transform: translate(-100%, 0%);
+  transition: transform 0.5s ease-in;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
-.list.active {
-  left: 0;
+.nav-active {
+  transform: translate(0%, 0%);
 }
 
 .list .list-item {
   list-style: none;
+  opacity: 0;
   /* border: 1px solid; */
 }
 
@@ -72,4 +93,28 @@ body {
 .social i {
   padding: 10px;
   font-size: 23px;
+}
+
+/* Animation  */
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hamburger */
+@keyframes ham {
+  0% {
+    /* transform: scale(0.5); */
+    transform: rotate(100deg);
+  }
+  100% {
+    /* transform: scale(1); */
+    transform: rotate(0deg);
+  }
 }
