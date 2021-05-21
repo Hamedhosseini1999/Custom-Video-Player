@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 20px;
+  padding: 10px 20px;
 }
 /* Hamburger */
 .hamburger {
@@ -67,9 +67,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #bdbdbd3d;
+  background-color: #bdbdbd8f;
   transform: translate(-100%, 0%);
   transition: transform 0.5s ease-in;
+  z-index: 500;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
@@ -92,10 +93,87 @@ body {
 /* Social Media */
 .social i {
   padding: 10px;
-  font-size: 23px;
+  font-size: 20px;
+}
+/* -------------------------------------------------------------------------- */
+/*                               ShowCase video                               */
+/* -------------------------------------------------------------------------- */
+.screen {
+  width: 100%;
+  height: 90%;
+}
+.showcase {
+  position: relative;
+  transition: all 0.4s ease;
+  /* cursor: pointer; */
+}
+/* .showcase .control:hover {
+  opacity: 1;
+} */
+/* range */
+.control {
+  transition: all 0.4s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  opacity: 1;
+}
+.range {
+  display: flex;
+  align-items: center;
+}
+.timestamp {
+  margin: 0 10px;
 }
 
-/* Animation  */
+/* Play Button */
+.play {
+  margin-left: 30px;
+  border: none;
+  background: none;
+  transform: scale(0.7);
+}
+.play li {
+  color: #fff;
+}
+.play div {
+  width: 28px;
+  height: 4px;
+  margin: 5px;
+  border-radius: 5px;
+  background: #fff;
+  transition: all 0.4s ease;
+}
+.p1 {
+  transform: rotate(45deg);
+}
+.p2 {
+  transform: rotate(90deg) translateY(13px) !important;
+  width: 37px !important;
+}
+.p3 {
+  transform: rotate(-45deg);
+}
+
+.change .p1 {
+  transform: rotate(90deg);
+}
+.change .p2 {
+  opacity: 0;
+}
+.change .p3 {
+  transform: rotate(90deg) translate(-18px, 18px);
+}
+
+.timestamp {
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Animation                                 */
+/* -------------------------------------------------------------------------- */
 @keyframes slide {
   from {
     opacity: 0;

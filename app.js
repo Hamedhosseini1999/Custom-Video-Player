@@ -1,9 +1,8 @@
+/// * Navbar
 const navSlide = () => {
-  /// * Navbar
   const burger = document.getElementById("hamburger");
   const list = document.getElementById("list");
   const listItem = document.querySelectorAll(".list .list-item");
-
   // Event Listeners
   burger.addEventListener("click", (e) => {
     // add slide
@@ -25,5 +24,63 @@ const navSlide = () => {
   });
 };
 
+///* ShowCase Video player
+const video = document.getElementById("video");
+const play = document.getElementById("play");
+const progress = document.getElementById("range");
+const timeStamp = document.getElementById("timestamp");
+
+// Event Listeners video
+video.addEventListener("click", () => {
+  toggleVideoPlay();
+  play.classList.toggle("change");
+});
+play.addEventListener("click", () => {
+  toggleVideoPlay();
+  play.classList.toggle("change");
+});
+video.addEventListener("timeupdate", updateProgress);
+progress.addEventListener("change", setVideoPlay);
+// video.addEventListener("play", changeIcon);
+// video.addEventListener("pause", changeIcon);
+
+// functions
+function toggleVideoPlay() {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+// update Progress
+function updateProgress() {
+  progress.value = (video.currentTime / video.duration) * 100;
+
+  let min = Math.floor(video.currentTime / 60);
+  if (min < 10) {
+    min = "0" + min;
+  }
+  let secs = Math.floor(video.currentTime % 60);
+  if (secs < 10) {
+    secs = "0" + secs;
+  }
+  timeStamp.innerHTML = `<div>${min}</div><small>${secs}</small>`;
+}
+// Set video play
+
+function setVideoPlay() {
+  video.currentTime = (progress.value * video.duration) / 100;
+}
+
+// Change Icon
+// function changeIcon() {
+//   if (video.paused) {
+//     play.innerHTML = '<li class="fa fa-pause fa-2x"></li>';
+//   } else {
+//     play.innerHTML = '<li class="fa fa-play fa-2x"></li>';
+//     console.log(video);
+//   }
+// }
 // Call
 navSlide();
