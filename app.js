@@ -43,7 +43,15 @@ video.addEventListener("timeupdate", updateProgress);
 progress.addEventListener("change", setVideoPlay);
 // video.addEventListener("play", changeIcon);
 // video.addEventListener("pause", changeIcon);
-
+// Change Icon
+// function changeIcon() {
+//   if (video.paused) {
+//     play.innerHTML = '<li class="fa fa-pause fa-2x"></li>';
+//   } else {
+//     play.innerHTML = '<li class="fa fa-play fa-2x"></li>';
+//     console.log(video);
+//   }
+// }
 // functions
 function toggleVideoPlay() {
   if (video.paused) {
@@ -73,14 +81,5 @@ function setVideoPlay() {
   video.currentTime = (progress.value * video.duration) / 100;
 }
 
-// Change Icon
-// function changeIcon() {
-//   if (video.paused) {
-//     play.innerHTML = '<li class="fa fa-pause fa-2x"></li>';
-//   } else {
-//     play.innerHTML = '<li class="fa fa-play fa-2x"></li>';
-//     console.log(video);
-//   }
-// }
 // Call
 navSlide();
